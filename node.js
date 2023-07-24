@@ -1,16 +1,19 @@
 
 // A3
+// npm install cors
 const express = require('express');
 var cors = require('cors');
+var ip = require('ip');
 const app = express();
 const port = 3000;
 
-app.use(cors({
-  origin: '*'
-}));
-
-// Middleware to parse JSON bodies
+app.use(express.static('public'));
+app.use(cors({ origin: '*' }));
 app.use(express.json());
+
+app.get('/', function(req, res) {
+  res.sendFile('public/index.html', {root: __dirname })
+});
 
 // define a route using a callback function that will be invoked
 // when the user makes a HTTP request to the root of the folder (URL)
@@ -86,7 +89,7 @@ function calculateBMI(height, weight) {
 function calculateBodyFat(age, gender, bmi) {
   var bodyFat;
   if (gender === "male") {
-   
+
     bodyFat = 1.20 * bmi + 0.23 * age - 16.2;
   } else {
     bodyFat = 1.20 * bmi + 0.23 * age - 5.4;
@@ -97,7 +100,7 @@ function calculateBodyFat(age, gender, bmi) {
 
 //Ideal weight in kg, height in meters
 function calculateIdealWeight(height, gender) {
- // Use Robinson law
+  // Use Robinson law
   const heightInches = height * 39.37;
 
   let idealWeight;
@@ -133,5 +136,5 @@ app.all('*', (req, res) => {
 });
 
 app.listen(port, () => {
-  return console.log(`Server is running on http://localhost:${port}`);
+  return console.log(`Server is running on http://${ip.address()}:${port}`);
 });
