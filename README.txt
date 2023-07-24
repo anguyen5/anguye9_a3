@@ -15,3 +15,6 @@ Github address: https://github.com/anguyen5/anguye9_a3.git
 GCP link: http://34.83.229.172/ 
 - I deployed on GCP, I used Bitnami and config on this link https://docs.bitnami.com/general/infrastructure/nodejs/get-started/get-started/
 - I used step 3 "Enable Predefined Virtual Hosts For An Express Application" with two command lines
+- 
+- Because the file video is  heavy so I uploaded on youtube. 
+- Link presentation: https://www.youtube.com/watch?v=IJWTMVTN75E
