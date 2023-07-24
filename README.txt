@@ -11,3 +11,5 @@
 - In node.js, I run create functions to calucalte BMI, body fat, weight, burn calories. I resseached them on the Google
 - For script.js, I creat action for event listener and display result from respnose server. 
 
+Github address: https://github.com/anguyen5/anguye9_a3.git
+GCP link: http://34.83.229.172/anguye9_a3/
