@@ -12,4 +12,6 @@
 - For script.js, I creat action for event listener and display result from respnose server. 
 
 Github address: https://github.com/anguyen5/anguye9_a3.git
-GCP link: http://34.83.229.172/anguye9_a3/
+GCP link: http://34.83.229.172/ 
+- I deployed on GCP, I used Bitnami and config on this link https://docs.bitnami.com/general/infrastructure/nodejs/get-started/get-started/
+- I used step 3 "Enable Predefined Virtual Hosts For An Express Application" with two command lines
