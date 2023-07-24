@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Fitzone</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Google fonts-->
+    <link
+        href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1 class="site-heading text-center text-faded d-none d-lg-block">
+            <span class="site-heading-upper text-primary mb-3">Fitness Elements</span>
+            <span class="site-heading-lower">BMI Calculator</span>
+        </h1>
+    </header>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="index.html">Fitzone</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="index.html">Home</a></li>
+                    <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="about.html">About</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="page-section about-heading">
+        <div class="container">
+            <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="assets/img/about.jpg" alt="..." />
+            <div class="about-heading-content">
+                <div class="row">
+                    <div class="col-xl-9 col-lg-10 mx-auto">
+                        <div class="bg-faded rounded p-5">
+                            <h2 class="section-heading mb-4">
+                                <span class="section-heading-upper">CALCULATE YOUR BMI</span>
+                                <span class="section-heading-lower">What is BMI</span>
+                            </h2>
+                            <p> BMI is a reliable indicator of body fatness for most people.
+                                It is used to screen for weight categories that may lead to health problems.
+                                This calculator provides BMI and the corresponding weight category.
+                                Use this calculator for adults, 20 years old and older.</p>
+                            <div>
+                                <form action="#" method="post" id="calculatorForm">
+                                    <table class="inforBMI">
+                                        <tr>
+                                            <td> <label for="height">Height:</label><br></td>
+                                            <td> <input id="heightfeets" type="number" placeholder="Feets" step="0.01"
+                                                    name="height_ft" required><br></td>
+                                            <td> <input id="heightinches" type="number" placeholder="Inches" step="0.01"
+                                                    name="height_in" required><br></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label for="weight">Weight:</label><br></td>
+                                            <td><input id="weightpounds" type="number" placeholder="Pounds" step="0.01"
+                                                    name="weight" required><br></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label for="age">Age:</label><br></td>
+                                            <td><input id="age" type="number" name="age" required><br></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td> <label for="gender">Gender:</label><br></td>
+                                            <td> <select id="gender" name="gender" required>
+                                                    <option value="male">Male</option>
+                                                    <option value="female">Female</option>
+                                                </select><br></td>
+                                        </tr>
+                                        <tr>
+                                            <td><button id="calBMI" type="submit">Calculate</button></td>
+
+                                        </tr>
+                            </div>
+                            </table>
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Modal for BMI -->
+    
+    <div class="modal" id="infoDialog" tabindex="-1" role="dialog" aria-labelledby="infoDialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Body Composition:</h5>
+                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button> -->
+                </div>
+                <div class="modal-body text-justify">
+                    <div class="card">
+                        <ul class="list-group">
+                            <li class="list-group-item" id="valueBMI_"></li>
+                            <li class="list-group-item" id="valueBodyfat_"></li>
+                            <li class="list-group-item" id="valueBodyfatMean_"></li>
+                            <li class="list-group-item" id="idealWeight_"></li>
+                            <li class="list-group-item" id="calories_"></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <p id="footer-info"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results will be displayed here -->
+
+    <section class="page-section">
+        <div class="container">
+            <div class="product-item">
+                <div class="product-item-title d-flex">
+                    <div class="bg-faded p-5 d-flex ms-auto rounded">
+                        <h2 class="section-heading mb-0">
+                            <span class="section-heading-upper">Your BMI </span>
+                            <span class="section-heading-lower">Check!</span>
+                        </h2>
+                    </div>
+                </div>
+                <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0"
+                    src="assets/img/Fitness_1a.jpeg" alt="..." />
+                <div class="product-item-description d-flex me-auto">
+                    <div class="bg-faded p-5 rounded">
+                        <p class="mb-0">BMI is used to assess risk for diseases, especially heart disease and diabetes.</p>
+                        <ul style=“list-style-type:square”>
+                            <li>Underweight: Less than 18.5</li>
+                            <li>Recommended: 18.6 to 24.9</li>
+                            <li>Overweight: 25.0 to 29.9</li>
+                            <li>Obese: 30 or greater</li>     
+                        </ul>
+                        <p id="valueBMI" style="color: #FF6700;"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="page-section">
+        <div class="container">
+            <div class="product-item">
+                <div class="product-item-title d-flex">
+                    <div class="bg-faded p-5 d-flex me-auto rounded">
+                        <h2 class="section-heading mb-0">
+                            <span class="section-heading-upper">Body Fat percentage</span>
+                            <span class="section-heading-lower">Check!</span>
+                        </h2>
+                    </div>
+                </div>
+                <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0"
+                    src="assets/img/Fitness_body.jpeg" alt="..." />
+                <div class="product-item-description d-flex ms-auto">
+                    <div class="bg-faded p-5 rounded">
+                        <p class="mb-0">Body fat percentage distinguishes fat from muscle and calculates the percentage
+                            of body fat in the body.</p>
+                        <p>Women</p>
+                        <ul style=“list-style-type:square”>
+
+                            <li>Essential Fat: 0-12 percent</li>
+                            <li>Athletes: 14-20 percent</li>
+                            <li>Fitness: 21-24 percent</li>
+                            <li>Acceptable: 25-31 percent</li>
+                            <li>Obese: 32 percent+</li>
+                        </ul>
+                        <p>Men</p>
+                        <ul style=“list-style-type:square”>
+
+                            <li>Essential Fat: 2-4 percent</li>
+                            <li>Athletes: 6-13 percent</li>
+                            <li>Fitness: 14-17 percent</li>
+                            <li>Acceptable: 25-31 percent</li>
+                            <li>Obese: 32 percent+</li>
+                        </ul>
+                        <p id="valueBodyfat" style="color: #FF6700;"></p>
+                        <p id="valueBodyfatMean" style="color: #FF6700;"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="page-section">
+        <div class="container">
+            <div class="product-item">
+                <div class="product-item-title d-flex">
+                    <div class="bg-faded p-5 d-flex ms-auto rounded">
+                        <h2 class="section-heading mb-0">
+                            <span class="section-heading-upper">Idea Weight</span>
+                            <span class="section-heading-lower">Check!</span>
+                        </h2>
+                    </div>
+                </div>
+                <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0"
+                    src="assets/img/Fitness_weight.jpeg" alt="..." />
+                <div class="product-item-description d-flex me-auto">
+                    <div class="bg-faded p-5 rounded">
+                        <p class="mb-0">Ideal body weight (IBW) is defined as weight for height at the lowest risk of mortality.</p>
+                        <p id="idealWeight" style="color: #FF6700;"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="page-section">
+        <div class="container">
+            <div class="product-item">
+                <div class="product-item-title d-flex">
+                    <div class="bg-faded p-5 d-flex ms-auto rounded">
+                        <h2 class="section-heading mb-0">
+                            <span class="section-heading-upper">Calories Burn</span>
+                            <span class="section-heading-lower">Check!</span>
+                        </h2>
+                    </div>
+                </div>
+                <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0"
+                    src="assets/img/Fitness_Calories.jpeg" alt="..." />
+                <div class="product-item-description d-flex me-auto">
+                    <div class="bg-faded p-5 rounded">
+                        <p class="mb-0">Your body burns calories through physical activity—taking a walk or climbing a flight of stairs. </p>
+                         <p id="calories" style="color: #FF6700;" ></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer text-faded text-center py-5">
+        <div class="container">
+            <p class="m-0 small">Copyright &copy; Your Website 2023</p>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
