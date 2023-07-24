@@ -3,7 +3,7 @@
 // npm install cors
 const express = require('express');
 var cors = require('cors');
-var ip = require('ip');
+// var os = require("os");
 const app = express();
 const port = 3000;
 
@@ -136,5 +136,6 @@ app.all('*', (req, res) => {
 });
 
 app.listen(port, () => {
-  return console.log(`Server is running on http://${ip.address()}:${port}`);
+  // return console.log(`Server is running on http://${os.hostname()}:${port}`);
+  return console.log(`Server is running on http://34.83.229.172:3000`);
 });

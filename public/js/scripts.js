@@ -47,10 +47,10 @@ window.addEventListener('DOMContentLoaded', event => {
 
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
-        const bmiJSON = await callAPI("http://127.0.0.1:3000/bmi", {});
-        const bodyFatJSON = await callAPI("http://127.0.0.1:3000/bodyfat", {bmi: bmiJSON.bmi});
-        const weightJSON = await callAPI("http://127.0.0.1:3000/idealweight", {bmi: bmiJSON.idealWeight});
-        const calorieJSON = await callAPI("http://127.0.0.1:3000/caloriesburned", {});
+        const bmiJSON = await callAPI(`/bmi`, {});
+        const bodyFatJSON = await callAPI(`/bodyfat`, {bmi: bmiJSON.bmi});
+        const weightJSON = await callAPI(`/idealweight`, {bmi: bmiJSON.idealWeight});
+        const calorieJSON = await callAPI(`/caloriesburned`, {});
 
       
 
