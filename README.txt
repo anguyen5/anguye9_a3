@@ -24,11 +24,7 @@
 Github address: https://github.com/anguyen5/anguye9_a3.git
 
 GCP link: http://34.83.229.172/ 
-****To run for GCP link, please edit local host API
-- Line 51: delete lolocal host "http://127.0.0.1:3000"
-- Line 52: delete lolocal host "http://127.0.0.1:3000"
-- Line 53: delete lolocal host "http://127.0.0.1:3000"
-- Line 54: delete lolocal host "http://127.0.0.1:3000"
+
 
 - I deployed on GCP, I used Bitnami and config on this link https://docs.bitnami.com/general/infrastructure/nodejs/get-started/get-started/
 - I used step 3 "Enable Predefined Virtual Hosts For An Express Application" with two command lines
@@ -36,4 +32,5 @@ GCP link: http://34.83.229.172/
 ///////////////////////////////////////////////////
 Presentation
 - Because the file video is  heavy so I uploaded on youtube. 
-- Link presentation: https://www.youtube.com/watch?v=IJWTMVTN75E
+- Link presentation 1: https://www.youtube.com/watch?v=3pVi3kMJFfM
+- Link presentation 2: https://www.youtube.com/watch?v=IJWTMVTN75E
